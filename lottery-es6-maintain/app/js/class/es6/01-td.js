@@ -11,7 +11,7 @@ function  letT() {
         console.log(i)
     }
     // es6默认开启严格模式，es5需要首行加上'use strict' 开启严格模式 Uncaught ReferenceError: i is not defined
-    console.log(i)
+    // console.log(i)
 }
 
 function  vatT() {
@@ -38,6 +38,6 @@ function  constT() {
 }
 
 
-// letT()
-// vatT()
+letT()
+vatT()
 constT()
