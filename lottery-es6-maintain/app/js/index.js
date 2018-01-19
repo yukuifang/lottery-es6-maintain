@@ -1,9 +1,3 @@
-class Hello{
-    constructor(){
-        this.a = 'hello'
-    }
-}
+import  './class/es6/01-td'
 
-let hello = new Hello()
 
-document.body.innerHTML = hello.a
