@@ -86,33 +86,71 @@ __webpack_require__(2);
 "use strict";
 
 
-/**
- * Created by fangyukui on 2018/1/21.
- */
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 {
-    console.log(Number.isInteger(25));
-    console.log(Number.isInteger(25.0));
-    console.log(Number.isInteger(25.1));
-    console.log(Number.isInteger('haha'));
+    var arr = ['ios', 'java', 'c++', 'python'];
+
+    var it = arr[Symbol.iterator]();
+
+    console.log(it.next());
+    console.log(it.next());
+    console.log(it.next());
+    console.log(it.next());
+    console.log(it.next());
 }
 
 {
-    console.log(Number.MAX_SAFE_INTEGER, Number.MIN_SAFE_INTEGER);
-    console.log(Number.isSafeInteger(10));
-    console.log(Number.isSafeInteger('a'));
-}
+    var obj = _defineProperty({
+        codes: ['ios', 'java', 'c++', 'python'],
+        base: ['math', 'english', 'chinese']
+    }, Symbol.iterator, function () {
+        var arrs = this.codes.concat(this.base);
+        var length = arrs.length;
+        var idx = 0;
+        return {
+            next: function next() {
+                if (idx < length) {
 
-{
-    //取整数部分
-    console.log(Math.trunc(4.1));
-    console.log(Math.trunc(4.8));
-    //向上取整
-    console.log(Math.ceil(2.3));
-    console.log(Math.ceil(2.8));
-    //向下取整
-    console.log(Math.floor(5.1));
-    console.log(Math.floor(5.8));
+                    return {
+                        value: arrs[idx++],
+                        done: false
+                    };
+                } else {
+                    return {
+                        value: undefined,
+                        done: true
+
+                    };
+                }
+            }
+        };
+    });
+
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
+    try {
+        for (var _iterator = obj[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var o = _step.value;
+
+            console.log(o);
+        }
+    } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+    } finally {
+        try {
+            if (!_iteratorNormalCompletion && _iterator.return) {
+                _iterator.return();
+            }
+        } finally {
+            if (_didIteratorError) {
+                throw _iteratorError;
+            }
+        }
+    }
 }
 
 /***/ })
